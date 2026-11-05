@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="fr"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cahier de cotation 2026-2027 · I.T.M N’DJILI</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.31/jspdf.plugin.autotable.min.js"></script>
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+--bg:#fff;--sf:#fff;--tx:#111827;--mu:#5b6478;--bd:#cfd6e4;--pr:#14285e;--onpr:#fff;--hd:#14285e;--hd2:#e8edf7;--hdt:#fff;--tot:#eef2fa;--bad:#fee2e2;--hv:#f6f8fc;--gd:#c9a227}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font-family:"Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif}
+button{font:inherit;cursor:pointer}.hide{display:none!important}
+#cover{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:space-between;text-align:center;padding:48px 20px 24px;background:linear-gradient(150deg,#0b1a42 0%,#14285e 55%,#1d3a82 100%);color:#fff}
+#cover .mid{margin:auto;max-width:640px;background:#fff;color:#111827;border-top:6px solid #c9a227;border-bottom:6px solid #c9a227;padding:46px 24px;width:100%;box-shadow:0 14px 40px #0006}
+#cover h1{margin:0;font-size:clamp(26px,6vw,40px);letter-spacing:3px;color:#14285e}
+#cover h2{margin:16px 0 34px;font-weight:600;font-size:clamp(15px,3.4vw,20px);letter-spacing:2px;color:#111827;border-top:1px solid #c9a227;padding-top:16px}
+.go{background:#c9a227;color:#0b1a42;border:0;padding:13px 28px;border-radius:4px;font-weight:600;font-size:16px}
+#cover footer{font-size:14px;color:#e8d38a;padding-top:20px}
+#app header{background:var(--hd);color:#fff;border-bottom:4px solid #c9a227;padding:12px 18px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+#app header b{font-size:16px;letter-spacing:1px}#app header span{opacity:.85;font-size:13px}#app header .sp{flex:1}
+.ghost{background:transparent;color:#fff;border:1px solid #ffffff80;padding:6px 12px;border-radius:4px;font-size:13px}
+.wrap{max-width:1500px;margin:0 auto;padding:14px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px}
+.tab{white-space:nowrap;background:var(--sf);color:var(--mu);border:1px solid var(--bd);border-radius:4px;padding:9px 16px;font-size:14px;font-weight:500}
+.tab.on{background:var(--pr);color:var(--onpr);border-color:var(--pr);font-weight:700;box-shadow:0 -3px 0 #c9a227 inset}
+.meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin-top:14px}.meta label{display:grid;gap:4px;font-size:12px;font-weight:600;color:var(--pr)}.meta input{padding:9px 12px;border:1px solid var(--bd);border-radius:4px;background:var(--sf);color:var(--tx);font:inherit;font-weight:400}
+.tools{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 10px;align-items:center}
+.tools input[type=search]{flex:1;min-width:200px;padding:9px 12px;border:1px solid var(--bd);border-radius:4px;background:var(--sf);color:var(--tx);font:inherit}
+.btn{background:var(--pr);color:var(--onpr);border:1px solid var(--pr);padding:9px 14px;border-radius:4px;font-size:14px;font-weight:600}
+.btn{display:inline-flex;align-items:center;gap:8px}.ic{width:18px;height:18px;flex:none}
+.btn.alt{background:var(--sf);color:var(--pr)}
+.info{color:var(--mu);font-size:12.5px;margin:0 0 8px}
+.tw{overflow:auto;background:var(--sf);border:1px solid var(--bd);max-height:74vh}
+table{border-collapse:separate;border-spacing:0;width:100%;font-size:13px;min-width:880px}
+th,td{border-bottom:1px solid var(--bd);border-right:1px solid var(--bd);padding:4px 6px;text-align:center;background:var(--sf)}
+thead th{position:sticky;background:var(--hd);color:var(--hdt);z-index:2;font-weight:600;height:38px}
+thead tr:first-child th{top:0}thead tr:nth-child(2) th{top:38px;background:var(--hd2);color:var(--tx);font-size:12px}
+thead input{width:48px;text-align:center;border:1px solid var(--bd);border-radius:3px;background:var(--sf);color:var(--tx);padding:3px;font:inherit}
+.s1,.s2{position:sticky;z-index:1}.s1{left:0;min-width:34px;width:34px;padding:4px 2px!important;font-size:12px}.s2{left:34px;min-width:118px;max-width:118px;width:118px;border-right:2px solid var(--pr)}
+thead th.s1,thead th.s2{z-index:4}
+td.nm{text-align:left;font-size:11.5px;line-height:1.2;padding:4px 3px!important}td.nm .r{display:flex;gap:2px;align-items:center;justify-content:space-between}td.nm .r span{flex:1;overflow-wrap:anywhere}
+.pen{background:none;border:0;color:var(--mu);font-size:13px;padding:0 2px;line-height:1;flex:none}.pen:hover{color:var(--pr)}
+td.nm input{width:100%;padding:4px;border:1px solid var(--pr);border-radius:3px;background:var(--sf);color:var(--tx);font:inherit}
+td input.n{width:50px;text-align:center;padding:4px 2px;border:1px solid var(--bd);border-radius:3px;background:var(--sf);color:var(--tx);font:inherit;-moz-appearance:textfield}
+input.n::-webkit-outer-spin-button,input.n::-webkit-inner-spin-button{-webkit-appearance:none}
+input.n.bad{background:var(--bad);border-color:#dc2626}
+td.t,td.g{background:var(--tot);font-weight:700}td.g{color:var(--pr)}
+tbody tr:hover td{background:var(--hv)}tbody tr:hover td.t,tbody tr:hover td.g{background:var(--tot)}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:#111827;color:#fff;padding:10px 16px;border-radius:4px;font-size:13px;z-index:60;max-width:90%}
+.modal{position:fixed;inset:0;background:#0007;display:grid;place-items:center;z-index:50;padding:16px}
+.box{background:var(--sf);padding:20px;border-radius:6px;width:min(420px,100%);display:grid;gap:10px}
+.box input,.box select{padding:9px;border:1px solid var(--bd);border-radius:4px;background:var(--bg);color:var(--tx);font:inherit}
+</style></head><body>
+
+<section id="cover">
+ <div></div>
+ <div class="mid">
+  <h1>I.T.M N’DJILI</h1>
+  <h2>CAHIER DE COTATION 2026-2027</h2>
+  <button class="go" id="enter">Accéder à l’espace de travail →</button>
+ </div>
+ <footer>Développé par <b>Ir. Steves Ilunga</b></footer>
+</section>
+
+<section id="app" class="hide">
+ <header><b>I.T.M N’DJILI</b><span>Cahier de cotation 2026-2027</span><div class="sp"></div>
+  <button class="ghost" id="home">← Page de garde</button></header>
+ <div class="wrap">
+  <div class="tabs" id="tabs"></div>
+  <div class="meta"><label>Cours<input id="cours" placeholder="Saisir le nom du cours" autocomplete="off"></label><label>Professeur du cours<input id="prof" placeholder="Saisir le nom du professeur" autocomplete="off"></label></div>
+  <div class="tools">
+   <input type="search" id="q" placeholder="Rechercher un élève par nom…">
+   <button class="btn" id="add"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6"/><path d="M19 8v6M16 11h6"/></svg><span>Ajouter un élève</span></button>
+   <button class="btn alt" id="prt"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 9V3h10v6"/><rect x="3" y="9" width="18" height="8" rx="2"/><rect x="7" y="14" width="10" height="7"/><circle cx="17.5" cy="12" r=".6" fill="currentColor"/></svg><span>Imprimer</span></button>
+   <button class="btn alt" id="pdf"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M12 11v6M9.5 14.5 12 17l2.5-2.5"/></svg><span>Convertir en PDF</span></button>
+  </div>
+  <p class="info">Les coefficients (maxima) se définissent dans la ligne bleue de l’en-tête. Les totaux se calculent automatiquement. Le crayon ✎ corrige un nom.</p>
+    <div class="tw"><table id="tb"></table></div>
+ </div>
+</section>
+
+<script>
+const DATA=[{"id": 0, "name": "2ème INFIRMIERE", "st": [{"n": "01", "name": "AHOKA\tOKONDA", "sex": "M", "obs": ""}, {"n": "02", "name": "ATITO\t\tDEBU", "sex": "F", "obs": ""}, {"n": "03", "name": "BAMBA\tTENDE", "sex": "F", "obs": ""}, {"n": "04", "name": "BAMBONGO\tMOKANO", "sex": "F", "obs": ""}, {"n": "05", "name": "BAMBONGO\tMOKANO", "sex": "F", "obs": ""}, {"n": "06", "name": "BIASALATATA MAVULA", "sex": "F", "obs": ""}, {"n": "07", "name": "BOKETSHU\tBANANGA", "sex": "M", "obs": ""}, {"n": "08", "name": "BUKUNDI\tBIKOYI", "sex": "F", "obs": ""}, {"n": "09", "name": "BUMWOLO\tMUNSIKIBEM", "sex": "F", "obs": ""}, {"n": "10", "name": "DIANGI\tDIKUNGU", "sex": "F", "obs": ""}, {"n": "11", "name": "DIENZA\tLUNDULUKA", "sex": "F", "obs": ""}, {"n": "12", "name": "DIKANGA\tMAGOGA", "sex": "F", "obs": ""}, {"n": "13", "name": "DIMONIKA\tSAKA", "sex": "F", "obs": ""}, {"n": "14", "name": "DIWAMBANZILA MAKANDA", "sex": "M", "obs": ""}, {"n": "15", "name": "DIYALA\tMBUKU", "sex": "F", "obs": ""}, {"n": "16", "name": "DUMBI\tBELANGANI", "sex": "M", "obs": ""}, {"n": "17", "name": "EKODI\t\tYALA", "sex": "F", "obs": ""}, {"n": "18", "name": "EYALE\t\tMPIARI", "sex": "F", "obs": ""}, {"n": "19", "name": "ILUA\t\tDUEME", "sex": "F", "obs": ""}, {"n": "20", "name": "ILUNGA\tNGOY", "sex": "F", "obs": ""}, {"n": "21", "name": "INGANGE\tLOKUA", "sex": "F", "obs": ""}, {"n": "22", "name": "KABA\t\tMAKIESE", "sex": "F", "obs": ""}, {"n": "23", "name": "KABEDI\tNTUMBA", "sex": "F", "obs": ""}, {"n": "24", "name": "KABONGO\tLUABA", "sex": "M", "obs": ""}, {"n": "25", "name": "KALONJI\tBETU", "sex": "F", "obs": ""}, {"n": "26", "name": "KALUNSEVIKO AMBROISE", "sex": "M", "obs": ""}, {"n": "27", "name": "KAMUANYA\tNKONGOLO", "sex": "F", "obs": ""}, {"n": "28", "name": "KANKOLONGO KALALA", "sex": "F", "obs": ""}, {"n": "29", "name": "KEDIAMBOSIKO KUMBIMBA", "sex": "F", "obs": ""}, {"n": "30", "name": "KEVANI\tMBO", "sex": "F", "obs": ""}, {"n": "31", "name": "KIBA\t\tNZAWULA", "sex": "F", "obs": ""}, {"n": "32", "name": "KIFU\t\tMAFUTONGO", "sex": "F", "obs": ""}, {"n": "33", "name": "KIFUANI\tBENEDICTE", "sex": "F", "obs": ""}, {"n": "34", "name": "KIKUEMA\tZALA", "sex": "M", "obs": ""}, {"n": "35", "name": "KIMFUTA KIAVANGANDIAMBIKO", "sex": "F", "obs": ""}, {"n": "36", "name": "KIMPELA\tNZUMBA", "sex": "F", "obs": ""}, {"n": "37", "name": "KINAVUIDI\tNDONGALA", "sex": "F", "obs": ""}, {"n": "38", "name": "KINSUEKILA\tKIBUDIKILA", "sex": "F", "obs": ""}, {"n": "39", "name": "KISAMFUMU\tKONDE", "sex": "M", "obs": ""}, {"n": "40", "name": "KIWOKO\tSANGI", "sex": "F", "obs": ""}, {"n": "41", "name": "KUNUNGOLO\t EMANGAJI", "sex": "F", "obs": ""}, {"n": "42", "name": "LISASI\tMASALA", "sex": "F", "obs": ""}, {"n": "43", "name": "LUBAKI\tLOTUTALA", "sex": "F", "obs": ""}, {"n": "44", "name": "LUFUNGULA\tGALE", "sex": "M", "obs": ""}, {"n": "45", "name": "LUKALA\tMATADI", "sex": "M", "obs": ""}, {"n": "46", "name": "LUKOKI\tNSUMBI", "sex": "F", "obs": ""}, {"n": "47", "name": "LUMAKU\tORAMBA", "sex": "F", "obs": ""}, {"n": "48", "name": "LUZOLO\tKASHIKA", "sex": "F", "obs": ""}, {"n": "49", "name": "MAFU\t\tNTOTILA", "sex": "F", "obs": ""}, {"n": "50", "name": "MAFUTA\tKINZOLE", "sex": "F", "obs": ""}, {"n": "51", "name": "MAFUTA\tMOLANGO", "sex": "F", "obs": ""}, {"n": "52", "name": "MAFUTA\tNAKIBI", "sex": "F", "obs": ""}, {"n": "53", "name": "MAKONDO\tNYANGISA", "sex": "M", "obs": ""}, {"n": "54", "name": "MAKUTAMA\tNGOMBA", "sex": "F", "obs": ""}, {"n": "55", "name": "MAMUZI\tNSUDI", "sex": "F", "obs": ""}, {"n": "56", "name": "MANZAMBI\tKUTAMPA", "sex": "F", "obs": ""}, {"n": "57", "name": "MASENGU\tKAYEMBE", "sex": "F", "obs": ""}, {"n": "58", "name": "MASUEME\tMAKIESE", "sex": "M", "obs": ""}, {"n": "59", "name": "MAVOKA\tDIAMPOVA", "sex": "F", "obs": ""}, {"n": "60", "name": "MAYINGI\tMABIKA", "sex": "F", "obs": ""}, {"n": "61", "name": "MAYUNGA\tMASIALA", "sex": "F", "obs": ""}, {"n": "62", "name": "MBENZA\tTSHINGANI", "sex": "F", "obs": ""}, {"n": "63", "name": "MBIYA\t\tTSHILENGA", "sex": "M", "obs": ""}, {"n": "64", "name": "MBOMA\tMOMPA", "sex": "F", "obs": ""}, {"n": "65", "name": "MBOMBILA\tMBANGI", "sex": "F", "obs": ""}, {"n": "66", "name": "MBOMBO\tKIAKU", "sex": "F", "obs": ""}, {"n": "67", "name": "MBOMBOLO\tMATUMBA", "sex": "F", "obs": ""}, {"n": "68", "name": "MBUITI\tKIAMBA", "sex": "F", "obs": ""}, {"n": "69", "name": "MBUKA\tISRAEL", "sex": "M", "obs": ""}, {"n": "70", "name": "MIKALA\tMALONGI", "sex": "F", "obs": ""}, {"n": "71", "name": "MIKISHI\tKAYITANGI", "sex": "M", "obs": ""}, {"n": "72", "name": "MIYILAMANI NSIMBA", "sex": "F", "obs": ""}, {"n": "73", "name": "MOBA\t\tEPWA", "sex": "M", "obs": ""}, {"n": "74", "name": "MOKOLO\tJACKSON", "sex": "M", "obs": ""}, {"n": "75", "name": "MOLINGBA\tMUNGONGO", "sex": "F", "obs": ""}, {"n": "76", "name": "MONGENZU\tMANKATO", "sex": "F", "obs": ""}, {"n": "77", "name": "MOSEKA\tMBONGO", "sex": "F", "obs": ""}, {"n": "78", "name": "MOSENGO\tMPUTU", "sex": "F", "obs": ""}, {"n": "79", "name": "MPUTU\tMWAMBA", "sex": "F", "obs": ""}, {"n": "80", "name": "MUBIALA\tMANKOSI", "sex": "F", "obs": ""}, {"n": "81", "name": "MUBIALA\tNKOWA", "sex": "F", "obs": ""}, {"n": "82", "name": "MUDINGUNGU NGAMBILA", "sex": "F", "obs": ""}, {"n": "83", "name": "MUDINZABA\tCHRIST", "sex": "F", "obs": ""}, {"n": "84", "name": "MUHUNGU\tKANIANGA", "sex": "F", "obs": ""}, {"n": "85", "name": "MUKATU\tMAYINGANI", "sex": "F", "obs": ""}, {"n": "86", "name": "MUKOBA\tMATENE", "sex": "F", "obs": ""}, {"n": "87", "name": "MUKOY\tKAMA", "sex": "M", "obs": ""}, {"n": "88", "name": "MULOMBA\tESIKAMUNTU", "sex": "F", "obs": ""}, {"n": "89", "name": "MVUEMBA\tMPEMBELE", "sex": "M", "obs": ""}, {"n": "90", "name": "MWILU\tNZEZA", "sex": "F", "obs": ""}, {"n": "91", "name": "NDAYA NGALAMULUME", "sex": "F", "obs": ""}, {"n": "92", "name": "NDEFI\t\tKIMBASU", "sex": "F", "obs": ""}, {"n": "93", "name": "NGANDU\tMULASHINGU", "sex": "M", "obs": ""}, {"n": "94", "name": "NGUDIAMATA NSONI", "sex": "F", "obs": ""}, {"n": "95", "name": "NGUMBU\tMAYEMBA", "sex": "F", "obs": ""}, {"n": "96", "name": "NSAYALA\tAMBOISINE", "sex": "F", "obs": ""}, {"n": "97", "name": "NSIESI\tMALAMBU", "sex": "M", "obs": ""}, {"n": "98", "name": "NSIKO\t\tNONGO", "sex": "F", "obs": ""}, {"n": "99", "name": "NSIMBA \tLUYINGA", "sex": "F", "obs": ""}, {"n": "100", "name": "NSIMBA\tLUKOKI", "sex": "F", "obs": ""}, {"n": "101", "name": "NSIMBA\tNGARA", "sex": "F", "obs": ""}, {"n": "102", "name": "NSIMBA\tORADY", "sex": "F", "obs": ""}, {"n": "103", "name": "NSUNGU\tNSEKI", "sex": "M", "obs": ""}, {"n": "104", "name": "NTATU\tMEKO", "sex": "M", "obs": ""}, {"n": "105", "name": "NZAVENDANA MANZENGI", "sex": "F", "obs": ""}, {"n": "106", "name": "NZEMBI\tMPEMBELE", "sex": "F", "obs": ""}, {"n": "107", "name": "PANZU\tTSHIANDAYI", "sex": "F", "obs": ""}, {"n": "108", "name": "PINDA\t\tMUSHINI", "sex": "F", "obs": ""}, {"n": "109", "name": "SAMU\t\tNSIBUENA", "sex": "F", "obs": ""}, {"n": "110", "name": "SEDI\t\tMUSITU", "sex": "F", "obs": ""}, {"n": "111", "name": "SELEKENE\tLUKOWA", "sex": "F", "obs": ""}, {"n": "112", "name": "TAMBANI\tNGINDU", "sex": "F", "obs": ""}, {"n": "113", "name": "TOVO\t\tLUZUADI", "sex": "M", "obs": ""}, {"n": "114", "name": "TSHILOMBO\tMAMBI", "sex": "F", "obs": ""}, {"n": "115", "name": "TSHOBI\tBOKOTSHA", "sex": "F", "obs": ""}, {"n": "116", "name": "WABA\t\tMAMONA", "sex": "M", "obs": ""}, {"n": "117", "name": "WANDI\tMOHEMBA", "sex": "F", "obs": ""}, {"n": "118", "name": "WASAWOLUA KIANGEBENI", "sex": "M", "obs": ""}, {"n": "119", "name": "WETUKALA\tANNE", "sex": "F", "obs": ""}, {"n": "120", "name": "WUMBA\tMAKABI", "sex": "F", "obs": ""}, {"n": "121", "name": "YOKOLO\tKULA", "sex": "F", "obs": ""}, {"n": "122", "name": "ZINGA\t\tKEMBO", "sex": "F", "obs": ""}, {"n": "123", "name": "ZOLA\t\tMAWETE", "sex": "F", "obs": ""}]}, {"id": 1, "name": "3ème INFIRMIERE", "st": [{"n": "01", "name": "ABIA\t\tMANKOLON", "sex": "F", "obs": ""}, {"n": "02", "name": "ALENDE\tNGOYA", "sex": "", "obs": "T"}, {"n": "03", "name": "AYINDUKA\tKASEMBO", "sex": "F", "obs": ""}, {"n": "04", "name": "BAKAJI\t\tPANU", "sex": "F", "obs": ""}, {"n": "05", "name": "BETE\t\tMIMBAY", "sex": "F", "obs": ""}, {"n": "06", "name": "BOLA\t\tDJEMA", "sex": "", "obs": "T"}, {"n": "07", "name": "BOUBAZAYA\tKOUTUENA", "sex": "F", "obs": ""}, {"n": "08", "name": "BOYA\t\tEBOLU", "sex": "M", "obs": ""}, {"n": "09", "name": "BOYONGO\tBOFILI", "sex": "F", "obs": ""}, {"n": "10", "name": "EKITA\t\tKASONGO", "sex": "F", "obs": ""}, {"n": "11", "name": "ENZANGA\tBOKINA", "sex": "F", "obs": ""}, {"n": "12", "name": "ISANGA\tMBALI", "sex": "F", "obs": ""}, {"n": "13", "name": "KABAMBA\tMUKENDI", "sex": "F", "obs": ""}, {"n": "14", "name": "KALONDA\tPANU", "sex": "M", "obs": ""}, {"n": "15", "name": "KALU\t\tLOKETO", "sex": "F", "obs": ""}, {"n": "16", "name": "KAMOSI\tENUNG", "sex": "F", "obs": ""}, {"n": "17", "name": "KAPAYI\tMUKUBA", "sex": "M", "obs": ""}, {"n": "18", "name": "KASHIKA\tKAZADI", "sex": "F", "obs": ""}, {"n": "19", "name": "KIANZO\tMUNA", "sex": "F", "obs": ""}, {"n": "20", "name": "KONGODIETO\tMALONDA", "sex": "F", "obs": ""}, {"n": "21", "name": "KUEDIATUKA\tMAZIBA", "sex": "F", "obs": ""}, {"n": "22", "name": "KUILA\t\tMAKABI", "sex": "", "obs": "T"}, {"n": "23", "name": "KWEYI\t\tBADILA", "sex": "F", "obs": ""}, {"n": "24", "name": "LANDU\t\tTOKO", "sex": "F", "obs": "R"}, {"n": "25", "name": "LEPAPE\tMATIASI", "sex": "M", "obs": ""}, {"n": "26", "name": "LUEMBA\tSUNGU", "sex": "F", "obs": ""}, {"n": "27", "name": "LUTALA\tMANZANZA", "sex": "F", "obs": ""}, {"n": "28", "name": "MATONDO", "sex": "M", "obs": ""}, {"n": "29", "name": "MATU\t\tSONGAMO", "sex": "F", "obs": ""}, {"n": "30", "name": "MAYEMBA\tLUTUMBA", "sex": "F", "obs": ""}, {"n": "31", "name": "MAYIMBI\tMASUNI", "sex": "M", "obs": ""}, {"n": "32", "name": "MAYINDU\tMABIALA", "sex": "F", "obs": ""}, {"n": "33", "name": "MBIYAVANGA\tNUNGA", "sex": "F", "obs": ""}, {"n": "34", "name": "MENAKUANZAMBI MASAMBA", "sex": "F", "obs": ""}, {"n": "35", "name": "MISHINGA\tMITELEJU", "sex": "F", "obs": ""}, {"n": "36", "name": "MOSI\t\tFUTILA", "sex": "F", "obs": ""}, {"n": "37", "name": "MPOLO\tNSIALA", "sex": "M", "obs": ""}, {"n": "38", "name": "MUHAU\tMATONDO", "sex": "F", "obs": ""}, {"n": "39", "name": "MUNSEKI\tSALA", "sex": "F", "obs": ""}, {"n": "40", "name": "MUSUAMBA\tMBIOLA", "sex": "F", "obs": ""}, {"n": "41", "name": "MUTUMOSI\tATEBE", "sex": "F", "obs": ""}, {"n": "42", "name": "NDONGALA\tTULONGA", "sex": "F", "obs": ""}, {"n": "43", "name": "NDULA\t\tBONGOLO", "sex": "F", "obs": ""}, {"n": "44", "name": "NDUNDU\tKUKINDA", "sex": "F", "obs": ""}, {"n": "45", "name": "NGALA\t\tPAMI", "sex": "F", "obs": ""}, {"n": "46", "name": "NGINAMAU\tLUNTADILA", "sex": "F", "obs": ""}, {"n": "47", "name": "NGUIDI\tNSABI", "sex": "M", "obs": ""}, {"n": "48", "name": "NIESI\t\tMBIYAVANGA", "sex": "M", "obs": ""}, {"n": "49", "name": "NKAMA\tKINSOSA", "sex": "F", "obs": ""}, {"n": "50", "name": "NKEMBI\tNKIAMBI", "sex": "F", "obs": ""}, {"n": "51", "name": "NSEMA\t\tMABUBA", "sex": "F", "obs": ""}, {"n": "52", "name": "NTIMA\t\tMWILU", "sex": "F", "obs": ""}, {"n": "53", "name": "NZUDI\t\tKIPULU", "sex": "F", "obs": ""}, {"n": "54", "name": "TABALA\tKILUMBU", "sex": "F", "obs": ""}, {"n": "55", "name": "TABWA\tBAHOLO", "sex": "F", "obs": ""}, {"n": "56", "name": "VILA\t\tDIKUSIDIKO", "sex": "F", "obs": ""}, {"n": "57", "name": "WONDA\tSANSO", "sex": "F", "obs": ""}, {"n": "58", "name": "YULU\t\tMUJINGA", "sex": "F", "obs": ""}, {"n": "59", "name": "ZINGA\t\tMAKIESE", "sex": "M", "obs": ""}, {"n": "60", "name": "ZINGA\t\tMALANDA", "sex": "F", "obs": ""}]}, {"id": 2, "name": "2ème A2 ACCOUCHEUSE", "st": [{"n": "01", "name": "AMBALA\tDJUNGA", "sex": "F", "obs": ""}, {"n": "02", "name": "BOABA\tMOSEKA", "sex": "F", "obs": ""}, {"n": "03", "name": "DESCHRYVER FRANSTHESCA", "sex": "F", "obs": ""}, {"n": "04", "name": "KAMENGA\tLANUA", "sex": "F", "obs": ""}, {"n": "05", "name": "KANDALA\tMOANDA", "sex": "F", "obs": ""}, {"n": "06", "name": "KIMPA\t\tNTUDI", "sex": "F", "obs": ""}, {"n": "07", "name": "LAMBA\tMVUEMBA", "sex": "F", "obs": ""}, {"n": "08", "name": "LOTIKA\tKAYEMBE", "sex": "F", "obs": ""}, {"n": "09", "name": "MABA\t\tMUKALUBA", "sex": "F", "obs": ""}, {"n": "10", "name": "MASHINGI\tWILINGA", "sex": "F", "obs": ""}, {"n": "11", "name": "MAYENA\tLUSADUSU", "sex": "F", "obs": ""}, {"n": "12", "name": "MBANZU\tKIALA", "sex": "F", "obs": ""}, {"n": "13", "name": "MBWANGA\tKIEMA", "sex": "F", "obs": ""}, {"n": "14", "name": "MPIA\t\tMASUAKU", "sex": "F", "obs": ""}, {"n": "15", "name": "MUKELENGE\tNKOSO", "sex": "F", "obs": ""}, {"n": "16", "name": "MUKENDI\tTSHIALA", "sex": "M", "obs": ""}, {"n": "17", "name": "MUKOBO\tAKOKA", "sex": "F", "obs": ""}, {"n": "18", "name": "NGIABA\tMAMONA", "sex": "M", "obs": ""}, {"n": "19", "name": "NKONGOLO\tMUSOKO", "sex": "F", "obs": ""}, {"n": "20", "name": "NKUSU\tISRAEL", "sex": "F", "obs": ""}, {"n": "21", "name": "NZULU\tMAKABA", "sex": "F", "obs": ""}, {"n": "22", "name": "TAMBA\tJOSEPHINE", "sex": "F", "obs": ""}, {"n": "23", "name": "WAVEDISUA\tMUNZAMBI", "sex": "F", "obs": ""}]}, {"id": 3, "name": "3ème A2 ACCOUCHEUSE", "st": [{"n": "01", "name": "AHOTO\tTHERESIA", "sex": "F", "obs": ""}, {"n": "02", "name": "ATOSHE\tLONDJA", "sex": "F", "obs": ""}, {"n": "03", "name": "BIAMBA\tKABANDA", "sex": "F", "obs": ""}, {"n": "04", "name": "BIDI\t\tZOLANA", "sex": "F", "obs": ""}, {"n": "05", "name": "BINDANDA\tMUNZEMBA", "sex": "F", "obs": ""}, {"n": "06", "name": "DIEYA\t\tMABENGI", "sex": "F", "obs": ""}, {"n": "07", "name": "EYAA\t\tNKOY", "sex": "F", "obs": ""}, {"n": "08", "name": "KIZAMA\tLUNGU", "sex": "F", "obs": ""}, {"n": "09", "name": "MATONDO\tKIANGANI", "sex": "F", "obs": ""}, {"n": "10", "name": "MPEZO\t\tMBAKULU", "sex": "F", "obs": ""}, {"n": "11", "name": "NGANZI\tLUILA", "sex": "F", "obs": ""}, {"n": "12", "name": "VUNDULU\tBASINDISA", "sex": "F", "obs": ""}]}];
+const KEY="itm_cotation_2026_2027";
+const LAB=["1ère période","2ème période","Examen","3ème période","4ème période","Examen"];
+let S;try{S=JSON.parse(localStorage.getItem(KEY))}catch(e){S=null}
+if(!S||!S.cls)S={cls:DATA.map(c=>({id:c.id,name:c.name,coef:[10,10,20,10,10,20],st:c.st.map(s=>({...s,m:["","","","","",""]}))}))};
+let cur=0;
+const $=id=>document.getElementById(id);
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}};
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const num=v=>{const x=parseFloat(String(v).replace(",","."));return isNaN(x)?0:x};
+const fmt=x=>Math.round(x*100)/100;
+function calc(s,c){const m=s.m.map(num);const t1=m[0]+m[1]+m[2],t2=m[3]+m[4]+m[5];
+ const any=s.m.some(v=>v!=="");const mx=c.reduce((a,b)=>a+num(b),0);
+ return{t1:any?fmt(t1):"",t2:any?fmt(t2):"",tg:any?fmt(t1+t2):"",pc:any&&mx?fmt((t1+t2)/mx*100)+"%":""}}
+function render(){
+ $("cours").value=S.cls[cur].cours||"";$("prof").value=S.cls[cur].prof||"";
+ $("tabs").innerHTML=S.cls.map((c,i)=>`<button class="tab ${i==cur?"on":""}" data-i="${i}">${esc(c.name)} (${c.st.length})</button>`).join("");
+ const c=S.cls[cur];const co=c.coef;
+ const s1=co[0]+co[1]+co[2],s2=co[3]+co[4]+co[5];
+ const th=(i)=>`<th>${LAB[i]}</th>`,ci=i=>`<th><input type="number" step="any" min="0" data-c="${i}" value="${co[i]}"></th>`;
+ $("tb").innerHTML=`<thead><tr><th class="s1">N°</th><th class="s2">NOM &amp; POST NOM</th><th>SEXE</th>${th(0)}${th(1)}${th(2)}<th>TOTAL<br>S1</th>${th(3)}${th(4)}${th(5)}<th>TOTAL<br>S2</th><th>TOTAL<br>GÉNÉRAL</th><th>%</th></tr>
+ <tr><th class="s1"></th><th class="s2" style="text-align:right">Coefficients (maxima)</th><th></th>${ci(0)}${ci(1)}${ci(2)}<th id="cs1">/${s1}</th>${ci(3)}${ci(4)}${ci(5)}<th id="cs2">/${s2}</th><th id="csg">/${s1+s2}</th><th>100</th></tr></thead><tbody id="tbd"></tbody>`;
+ rows()}
+function rows(){
+ const c=S.cls[cur],q=$("q").value.trim().toLowerCase();let h="";
+ c.st.forEach((s,i)=>{if(q&&!s.name.toLowerCase().replace(/\s+/g," ").includes(q.replace(/\s+/g," ")))return;
+  const r=calc(s,c.coef);
+  h+=`<tr data-i="${i}"><td class="s1">${esc(s.n)}</td><td class="nm s2"><div class="r"><span>${esc(s.name.replace(/\s+/g," "))}</span><button class="pen" title="Corriger le nom" data-e="${i}">✎</button></div></td><td>${esc(s.sex||"")}</td>`;
+  [0,1,2].forEach(k=>h+=cell(s,k,c));h+=`<td class="t" data-t="t1">${r.t1}</td>`;
+  [3,4,5].forEach(k=>h+=cell(s,k,c));h+=`<td class="t" data-t="t2">${r.t2}</td><td class="g" data-t="tg">${r.tg}</td><td data-t="pc">${r.pc}</td></tr>`});
+ $("tbd").innerHTML=h||`<tr><td colspan="14" style="padding:20px;color:var(--mu)">Aucun élève trouvé.</td></tr>`}
+function cell(s,k,c){const v=s.m[k];return `<td><input class="n ${v!==""&&num(v)>num(c.coef[k])?"bad":""}" type="number" step="any" min="0" data-k="${k}" value="${esc(v)}"></td>`}
+function upd(tr){const c=S.cls[cur],s=c.st[tr.dataset.i],r=calc(s,c.coef);
+ for(const k in r)tr.querySelector(`[data-t=${k}]`).textContent=r[k]}
+document.addEventListener("input",e=>{const t=e.target,c=S.cls[cur];
+ if(t.dataset.k!==undefined){const tr=t.closest("tr");c.st[tr.dataset.i].m[t.dataset.k]=t.value;
+  t.classList.toggle("bad",t.value!==""&&num(t.value)>num(c.coef[t.dataset.k]));upd(tr);save()}
+ else if(t.dataset.c!==undefined){c.coef[t.dataset.c]=num(t.value);
+  const co=c.coef,a=co[0]+co[1]+co[2],b=co[3]+co[4]+co[5];
+  $("cs1").textContent="/"+a;$("cs2").textContent="/"+b;$("csg").textContent="/"+(a+b);
+  document.querySelectorAll("#tbd tr[data-i]").forEach(tr=>{upd(tr);tr.querySelectorAll("input.n").forEach(n=>n.classList.toggle("bad",n.value!==""&&num(n.value)>num(co[n.dataset.k])))});save()}
+ else if(t.id=="q")rows();
+ else if(t.id=="cours"||t.id=="prof"){c[t.id]=t.value;save()}});
+document.addEventListener("click",e=>{const t=e.target;
+ if(t.dataset.i&&t.classList.contains("tab")){cur=+t.dataset.i;$("q").value="";render()}
+ if(t.dataset.e!==undefined){const td=t.closest("td"),i=t.dataset.e,s=S.cls[cur].st[i];
+  td.innerHTML=`<input value="${esc(s.name.replace(/\s+/g," "))}">`;const inp=td.firstChild;inp.focus();
+  const ok=()=>{const v=inp.value.replace(/\s+$/,"");if(v.trim())s.name=v.toUpperCase();save();rows()};
+  inp.onkeydown=ev=>{if(ev.key=="Enter")ok();if(ev.key=="Escape")rows()};inp.onblur=ok}});
+$("enter").onclick=()=>{$("cover").classList.add("hide");$("app").classList.remove("hide");render()};
+$("home").onclick=()=>{$("app").classList.add("hide");$("cover").classList.remove("hide")};
+const fname=()=>"Cotation_"+S.cls[cur].name.replace(/[^A-Za-z0-9]+/g,"_");
+function build(){const c=S.cls[cur],J=window.jspdf;if(!J)return null;
+ const d=new J.jsPDF({orientation:"portrait",format:"a4",unit:"mm"}),W=210;
+ d.setFont("helvetica","bold");d.setTextColor(0);d.setFontSize(10);d.text("RÉPUBLIQUE DÉMOCRATIQUE DU CONGO",W/2,10,{align:"center"});
+ d.text("INSTITUT TECHNIQUE MÉDICAL",W/2,15.5,{align:"center"});
+ d.setFontSize(15);d.text("I.T.M N’DJILI",W/2,22,{align:"center"});
+ d.setDrawColor(201,162,39);d.setLineWidth(.6);d.line(10,25,W-10,25);
+ d.setFontSize(13);d.text("FICHE DE COTATION 2026-2027",W/2,32,{align:"center"});
+ d.setLineWidth(.2);d.line(10,35,W-10,35);
+ d.setFont("helvetica","normal");d.setFontSize(10);
+ d.text("Classe : "+c.name,10,41);d.text("Date : "+new Date().toLocaleDateString("fr-FR"),W-10,41,{align:"right"});
+ d.text("Cours : "+(c.cours||"").trim(),10,47);d.text("Professeur : "+(c.prof||"").trim(),10,53);
+ const co=c.coef,a=co[0]+co[1]+co[2],b=co[3]+co[4]+co[5];
+ const body=c.st.map(s=>{const r=calc(s,co);return[s.n,s.name.replace(/\s+/g," ").trim(),s.sex||"",s.m[0],s.m[1],s.m[2],r.t1,s.m[3],s.m[4],s.m[5],r.t2,r.tg,r.pc]});
+ const cs={0:{cellWidth:8},1:{cellWidth:56,halign:"left"},2:{cellWidth:8}};for(let k=3;k<=10;k++)cs[k]={cellWidth:11};cs[11]={cellWidth:13};cs[12]={cellWidth:12};
+ d.autoTable({startY:57,margin:{left:10,right:10,bottom:14},tableWidth:"wrap",theme:"grid",columnStyles:cs,
+  head:[["N°","NOM & POST NOM","SEXE","1ère\npér.","2ème\npér.","Exam.","Total\nS1","3ème\npér.","4ème\npér.","Exam.","Total\nS2","Total\ngén.","%"],
+  ["","Coefficients","",co[0],co[1],co[2],a,co[3],co[4],co[5],b,a+b,"100"]],body,
+  styles:{fontSize:7,cellPadding:{top:1.3,bottom:1.3,left:1,right:1},halign:"center",valign:"middle",lineColor:[160,160,160],lineWidth:.15,textColor:20,overflow:"ellipsize"},
+  headStyles:{fillColor:[31,58,110],textColor:255,fontSize:6.8},
+  didParseCell:h=>{if(h.section=="head"&&h.row.index==1){h.cell.styles.fillColor=[229,233,242];h.cell.styles.textColor=20;h.cell.styles.fontStyle="bold"}
+   if(h.section=="body"&&[6,10,11].includes(h.column.index))h.cell.styles.fontStyle="bold"},
+  didDrawPage:()=>{d.setFontSize(8);d.setTextColor(110);d.text("I.T.M N’DJILI — "+c.name,10,289);d.text("Page "+d.internal.getNumberOfPages(),W-10,289,{align:"right"});d.setTextColor(0)}});
+ return d}
+function toast(t){const e=document.createElement("div");e.className="toast";e.textContent=t;document.body.appendChild(e);setTimeout(()=>e.remove(),4500)}
+async function saveDoc(d,msg){const name=fname()+".pdf";let dl=null;
+ try{dl=window.claude&&await claude.use("downloads")}catch(e){}
+ if(dl){try{await dl.save({filename:name,data:d.output("blob")});toast(msg)}catch(e){if(!e||e.code!=="declined")toast("Enregistrement impossible : réessayez.")}}
+ else{try{d.save(name)}catch(e){toast("Enregistrement impossible.")}}}
+$("pdf").onclick=()=>{const d=build();if(!d){toast("Le module PDF n’est pas chargé. Vérifiez la connexion.");return}saveDoc(d,"PDF enregistré.")};
+$("prt").onclick=()=>{const d=build();if(!d){toast("Le module PDF n’est pas chargé. Vérifiez la connexion.");return}
+ d.autoPrint();let w=null;try{w=window.open(d.output("bloburl"),"_blank")}catch(e){}
+ if(!w)saveDoc(d,"Fichier prêt à imprimer enregistré : ouvrez-le puis lancez l’impression.")};
+$("add").onclick=()=>{const m=document.createElement("div");m.className="modal";
+ m.innerHTML=`<div class="box"><b>Ajouter un élève — ${esc(S.cls[cur].name)}</b><input id="an" placeholder="NOM &amp; POST NOM"><select id="as"><option value="F">F</option><option value="M">M</option></select><div style="display:flex;gap:8px;justify-content:flex-end"><button class="btn alt" id="ac">Annuler</button><button class="btn" id="ao">Ajouter</button></div></div>`;
+ document.body.appendChild(m);$("an").focus();$("ac").onclick=()=>m.remove();
+ $("ao").onclick=()=>{const n=$("an").value.trim().toUpperCase();if(!n){$("an").focus();return}
+  const c=S.cls[cur];c.st.push({n:String(c.st.length+1).padStart(2,"0"),name:n,sex:$("as").value,m:["","","","","",""]});save();m.remove();render()}};
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.31/jspdf.plugin.autotable.min.js"></script></body></html>
